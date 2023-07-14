@@ -1,0 +1,12 @@
+# use python base image
+FROM python
+# Create a workdir for application
+WORKDIR /usr/app
+# Copy requirement.txt file for install all dependencies
+COPY requirements.txt .
+# Install all dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+# copy project file inside container
+COPY . .
+# Running Application
+CMD ["python", "app.py"]
